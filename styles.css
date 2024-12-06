@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#header{
+    text-align: center;
+    color: aqua;
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(209, 217, 217);
+    background-image: url(home.jpg);
+    background-size: cover;
+
+}
+.keys{
+    position: absolute;
+    bottom: 30%;
+}
+
+.key{
+    width: 60px;
+    height: 60px;
+    border-style: solid;
+    border-color: rgb(254, 250, 250);
+    background-color: transparent;
+    color: white;
+    bottom: 80px;
+    float: left;
+    margin: 5px;
+    padding: 8px;
+    text-align: center;
+}
+
+.describe{
+    color: aquamarine;
+
+}
