@@ -9,69 +9,121 @@
 <body>
     <h2 id="header">HIT to DRUM</h2>
     <div class="keys">
-        <div data-key="88" class="key">
+        <div id = "bounceSound" class="key">
             <kbd>X</kbd>
             <span class="describe">bounce</span>
         </div>
-        <div data-key="70" class="key">
+        <div id="explo" class="key">
             <kbd>F</kbd>
-            <span class="describe">explode</span>
+            <span class="describe">explo</span>
         </div>  
-        <div data-key="72" class="key">
+        <div id="metalhitdiv" class="key">
             <kbd>H</kbd>
             <span class="describe">metal</span>
         </div>  
-        <div data-key="65" class="key">
+        <div id="springdiv" class="key">
             <kbd>A</kbd>
             <span class="describe">spring</span>
         </div>  
-        <div data-key="90" class="key">
+        <div id="boingdiv" class="key">
             <kbd>Z</kbd>
             <span class="describe">boing</span>
         </div>  
-        <div data-key="74" class="key">
+        <div id="clapdiv" class="key">
             <kbd>J</kbd><br>
             <span class="describe">clap</span>
         </div>  
-        <div data-key="79" class="key">
+        <div id="sworddiv" class="key">
             <kbd>O</kbd>
             <span class="describe">sword</span>
         </div>  
-        <div data-key="76" class="key">
+        <div id="lightdiv" class="key">
             <kbd>L</kbd><br>
             <span class="describe">light</span>
         </div>  
-        <div data-key="81" class="key">
+        <div id="whooshdiv" class="key">
             <kbd>Q</kbd>
-            <span class="describe">whoosh</span>
+            <span class="describe">whoos</span>
         </div>
     </div>
+    <audio id="myAudio" src="sound/bounce-8111.mp3"></audio>
+    <audio id="explode" src="sound/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3"></audio>
+    <audio id="metalhit" src="sound/metal-hit-cartoon-7118.mp3"></audio>
+    <audio id="spring" src="sound/springboard-b-92439.mp3"></audio>
+    <audio id="boing" src="sound/boing-6222.mp3"></audio>
+    <audio id="clap" src="sound/clapping-sound-effect-272058.mp3"></audio>
+    <audio id="sword" src="sound/sword-sound-effect-2-234986.mp3"></audio>
+    <audio id="light" src="sound/lightening-bang-impact-40580(1).mp3"></audio>
+    <audio id="whoosh" src="sound/whoosh-sound-effect-240257.mp3"></audio>
 
-    <audio data-key="88" src="sound/bounce-8111.mp3"></audio>
-    <audio data-key="70" src="sound/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3"></audio>
-    <audio data-key="72" src="sound/metal-hit-cartoon-7118.mp3"></audio>
-    <audio data-key="65" src="sound/springboard-b-92439.mp3"></audio>
-    <audio data-key="90" src="sound/boing-6222.mp3"></audio>
-    <audio data-key="74" src="sound/clapping-sound-effect-272058.mp3"></audio>
-    <audio data-key="79" src="sound/sword-sound-effect-2-234986.mp3"></audio>
-    <audio data-key="76" src="sound/lightening-bang-impact-40580(1).mp3"></audio>
-    <audio data-key="81" src="sound/whoosh-sound-effect-240257.mp3"></audio>
-
+  
     <script>
-        window.addEventListener('keydown', function(e){
-            const audio = document.querySelector(`audio[data-key="${e.key.toUpperCase()}"]`);
-            const key = document.querySelector(`.key[data-key="${e.key.toUpperCase()}"]`);
-            if(!audio) return;
-            audio.play();
-            key.classList.add('playing');
-            console.log(key);
-        });
+        const audio = document.getElementById('myAudio');
+const explode = document.getElementById('explode');   
+const metalhit = document.getElementById('metalhit');
+const spring = document.getElementById('spring');
+const boing = document.getElementById('boing');
+const clap = document.getElementById('clap');
+const sword = document.getElementById('sword');
+const light = document.getElementById('light');
+const whoosh = document.getElementById('whoosh');
 
-        document.querySelectorAll('.key').forEach(key => {
-            key.addEventListener('transitionend', function() {
-                key.classList.remove('playing');
-            });
-        });
+
+
+
+
+
+
+document.addEventListener("keydown", function(event){
+    if(event.key === 'X' || event.key === 'x' ){
+        document.getElementById('bounceSound').classList.add('playing');
+        audio.currentTime = 0;
+        audio.play();
+    }
+        if(event.key === 'F' || event.key === 'f' ){
+        document.getElementById('explo').classList.add('playing');
+        explode.currentTime = 0;
+        explode.play();
+    }          
+       if(event.key === 'H' || event.key === 'h' ){
+        document.getElementById('metalhitdiv').classList.add('playing');
+        metalhit.currentTime = 0;
+        metalhit.play();
+    }          
+        if(event.key === 'A' || event.key === 'a' ){
+        document.getElementById('springdiv').classList.add('playing');
+        spring.currentTime = 0;
+        spring.play();
+    }          
+        if(event.key === 'Z' || event.key === 'z' ){
+        document.getElementById('boingdiv').classList.add('playing');
+        boing.currentTime = 0;
+        boing.play();
+    }           
+        if(event.key === 'J' || event.key === 'j' ){
+        document.getElementById('clapdiv').classList.add('playing');
+        clap.currentTime = 0;
+        clap.play();
+    }          
+        if(event.key === 'O' || event.key === 'o' ){
+        document.getElementById('sworddiv').classList.add('playing');
+        sword.currentTime = 0;
+        sword.play();
+    }        
+       if(event.key === 'L' || event.key === 'l' ){
+        document.getElementById('lightdiv').classList.add('playing');
+        light.currentTime = 0;
+        light.play();
+    }  
+        if(event.key === 'Q' || event.key === 'q' ){
+        document.getElementById('whooshdiv').classList.add('playing');
+        whoosh.currentTime = 0;
+        whoosh.play();
+
+    }
+
+});
+
     </script>
 </body>
 </html>
